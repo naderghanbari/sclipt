@@ -3,4 +3,4 @@
 !#
 
 // Scala script which just echoes all the arguments in separate lines.
-args foreach Console.println
+args foreach println
