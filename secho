@@ -1,6 +1,4 @@
-#!/bin/sh
- exec scala "$0" "$@"
-!#
+#!/usr/bin/env scala
 
 // Scala script which just echoes all the arguments in separate lines.
 args foreach println
