@@ -3,6 +3,6 @@
 // Scala script which counts the number of lines in a file.
 def lineCount(fileName: String) = scala.io.Source.fromFile(fileName).getLines().size
 val lines = args map lineCount
-args zip lines map { case (file, size) => s"$file: size" } foreach println
+args zip lines map { case (file, size) => s"$file: $size" } foreach println
 val total = lines reduceLeft (_ + _)
 println (s"Total: $total")
