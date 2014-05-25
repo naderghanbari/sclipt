@@ -6,8 +6,6 @@ import scala.language.postfixOps
 import io.Source.fromFile
 import java.io.File
 
-val files = args map (new File(_)) filter (_.exists) filter (_.isFile)
+val files = args map (new File(_)) filter (_ exists) filter (_ isFile)
 val lines = files map fromFile map (_ getLines) map (_ size)
-files zip lines map { case (file, size) => s"$file: $size"} foreach println
-val total = lines reduceLeft (_ + _)
-println(s"Total: $total")
+files zip lines ++ List(("Total", (lines fold 0)(_ + _))) map {case (file, size) => s"$file: $size"} foreach println
