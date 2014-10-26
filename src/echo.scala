@@ -1,5 +1,5 @@
-#!/usr/bin/env scala 
+#!/usr/bin/env scala
 
-/** Echoes all the arguments in separate lines. */
+/** Echoes arguments, each in a separate line. */
 
 args foreach println
