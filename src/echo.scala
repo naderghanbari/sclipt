@@ -2,4 +2,6 @@
 
 /** Echoes arguments, each in a separate line. */
 
-args foreach println
+println {
+  args mkString " "
+}
