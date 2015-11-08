@@ -2,5 +2,12 @@
 
 /** Counts number of files. */
 
-def files = args map (new java.io.File(_)) filter (_.exists) filter (_.isFile)
-println(s"Total files: ${files.size}")
+def asFileStream(fileNames: Array[String]) = fileNames.toStream map (new java.io.File(_))
+
+def fileCount(candidates: Stream[java.io.File]) = candidates count (_.isFile)
+
+lazy val count = fileCount(asFileStream(args))
+
+println {
+  s"Total files: $count"
+}
