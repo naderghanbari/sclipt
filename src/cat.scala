@@ -8,8 +8,8 @@ def existingFiles(candidates: Stream[java.io.File]) = candidates filter (_.isFil
 
 def lineStream(file: java.io.File) = io.Source.fromFile(file).getLines().toStream
 
-lazy val lines = existingFiles(asFileStream(args)) flatMap lineStream
+val lss = existingFiles(asFileStream(args)) flatMap lineStream
 
-lines foreach {
+lss foreach {
   println
 }
