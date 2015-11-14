@@ -2,6 +2,9 @@
 
 /** Lists contents of the current directory. */
 
-def files = new java.io.File(".").listFiles()
-def names = files map (_.getName)
-names foreach println
+val files = new java.io.File(".").listFiles().toStream
+val names = files map (_.getName)
+
+names foreach {
+  println
+}
