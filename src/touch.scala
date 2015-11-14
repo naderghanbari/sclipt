@@ -2,5 +2,10 @@
 
 /** Creates files if not existing. */
 
-def files = args map (new java.io.File(_))
-files foreach (_.createNewFile())
+def asFileStream(fileNames: Array[String]) = fileNames.toStream map (new java.io.File(_))
+
+def nonExistingFiles(candidates: Stream[java.io.File]) = candidates filterNot (_.exists)
+
+nonExistingFiles(asFileStream(args)) foreach {
+  _.createNewFile
+}
